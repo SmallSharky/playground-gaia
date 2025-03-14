@@ -1,0 +1,8 @@
+manifest:
+  self:
+    path: zephyr-osm
+  projects:
+    - name: zephyr
+      url: https://github.com/zephyrproject-rtos/zephyr.git
+      revision: main
+      west-commands: scripts/west-commands.yml
