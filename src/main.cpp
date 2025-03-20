@@ -6,10 +6,17 @@
 // #include <device.h>
 // #include <drivers/display.h>
 #include <zephyr/fs/fs.h>
-#include <zephyr/logging/log.h>
+
 #include <zephyr/storage/disk_access.h>
 #include <ff.h>
+
+
+
+#include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
+
+
+#include "widgets/hello_widget.hpp"
 
 lv_obj_t *sd_status_icon = nullptr;
 
@@ -58,6 +65,10 @@ static void lv_example(void)
    * E.g. set LV_USE_FS_STDIO 'A' in lv_conf.h */
 
   lv_obj_align(img, LV_ALIGN_BOTTOM_LEFT, 0, 0);
+
+
+  HelloWidget * hw = HelloWidget::create(Widget::getActiveScreen());
+  hw->doSomething();
 }
 
 static int lsdir(const char *path)
